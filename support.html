@@ -1,390 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - ExecCouncil</title>
-    <style>
-        :root {
-            --bg-primary: #121212;
-            --bg-secondary: #1e1e1e;
-            --text-primary: #ffffff;
-            --text-secondary: #cccccc;
-            --accent-primary: #00e68a;
-            --accent-secondary: #6699ff;
-            --accent-tertiary: #ff9933;
-            --purple: #d926ff;
-            --danger: #ff5252;
-            --input-bg: #2a2a2a;
-            --input-border: #444444;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        h1, h2, h3, h4 {
-            color: var(--text-primary);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-top: 2rem;
-            color: var(--accent-primary);
-        }
-        
-        h2 {
-            border-bottom: 2px solid var(--accent-secondary);
-            padding-bottom: 0.5rem;
-            font-size: 1.5rem;
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            color: var(--accent-secondary);
-        }
-        
-        a {
-            color: var(--accent-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--accent-primary);
-            text-decoration: underline;
-        }
-        
-        section {
-            background-color: var(--bg-secondary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        ul {
-            padding-left: 1.5rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #333;
-            font-size: 0.9em;
-            color: var(--text-secondary);
-        }
-        
-        .highlight {
-            color: var(--accent-primary);
-            font-weight: bold;
-        }
-        
-        .back-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: var(--accent-secondary);
-            color: var(--bg-primary);
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        
-        .back-link:hover {
-            background-color: var(--accent-primary);
-            text-decoration: none;
-        }
-        
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.2rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .form-group label {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        
-        .form-control {
-            background-color: var(--input-bg);
-            border: 1px solid var(--input-border);
-            border-radius: 4px;
-            padding: 0.8rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent-secondary);
-            box-shadow: 0 0 0 2px rgba(102, 153, 255, 0.2);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
-            color: var(--bg-primary);
-            border: none;
-            border-radius: 4px;
-            padding: 1rem;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-            margin-top: 1rem;
-        }
-        
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-        
-        .faq-item {
-            margin-bottom: 1.5rem;
-        }
-        
-        .faq-question {
-            font-weight: bold;
-            color: var(--accent-tertiary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .faq-answer {
-            margin-left: 1rem;
-        }
-        
-        .support-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        
-        .support-link {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--accent-secondary);
-            border-radius: 8px;
-            padding: 1.5rem;
-            width: 220px;
-            text-align: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .support-link:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            text-decoration: none;
-        }
-        
-        .support-link h3 {
-            margin-top: 0.5rem;
-        }
-        
-        .support-icon {
-            font-size: 2.5rem;
-            color: var(--accent-secondary);
-        }
-        
-        .intro-text {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 0 1rem;
-            line-height: 1.8;
-        }
-
-        .success-message {
-            display: none;
-            background-color: rgba(0, 230, 138, 0.2);
-            border: 1px solid var(--accent-primary);
-            border-radius: 4px;
-            padding: 1rem;
-            margin: 1rem 0;
-            text-align: center;
-        }
-        
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            
-            section {
-                padding: 1rem;
-            }
-            
-            .support-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .support-link {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — The Council</title>
+<meta name="description" content="Help, answers, and direct contact for The Council — AI Life Planner.">
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-    <h1>ExecCouncil AI Support</h1>
-    
-    <p class="intro-text">We're here to help you make the most of ExecCouncil AI. Whether you're encountering an issue or have questions about using the app, our support team is ready to assist you.</p>
-    
-    <div class="support-links">
-        <a href="#faq" class="support-link">
-            <div class="support-icon">❓</div>
-            <h3>FAQ</h3>
-            <p>Browse our frequently asked questions</p>
-        </a>
-        
-        <a href="#contact" class="support-link">
-            <div class="support-icon">✉️</div>
-            <h3>Contact Us</h3>
-            <p>Send us a message for direct support</p>
-        </a>
-        
-        <a href="#tutorials" class="support-link">
-            <div class="support-icon">📚</div>
-            <h3>Tutorials</h3>
-            <p>Learn how to use ExecCouncil AI</p>
-        </a>
-    </div>
-    
-    <section id="faq">
-        <h2>Frequently Asked Questions</h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">How does ExecCouncil AI break down my goals?</div>
-            <div class="faq-answer">
-                Our AI system analyzes your goal description and applies principles from productivity methodologies to create a structured hierarchy of nodes, habits, and actions. You can always modify the AI suggestions to better fit your specific needs.
-            </div>
-        </div>
-        
-        
-        <div class="faq-item">
-            <div class="faq-question">How do I track my progress towards goals?</div>
-            <div class="faq-answer">
-                ExecCouncil AI provides several ways to track progress: visual progress bars for each goal, time tracking for habits and actions, completion percentages for nodes, and comprehensive analytics in the Insights dashboard.
-            </div>
-        </div>
-        
-        <div class="faq-item">
-            <div class="faq-question">Can I export my data from ExecCouncil AI?</div>
-            <div class="faq-answer">
-                Yes, you can export your data from the Settings menu. This allows you to backup your information or transfer it to other systems if needed.
-            </div>
-        </div>
-        
-    </section>
-    
-    <section id="tutorials">
-        <h2>Tutorials & Guides</h2>
-        
-    <ul>
-        <li>Getting Started with ExecCouncil AI <span>(Coming soon)</span></li>
-        <li>Creating Effective Goals with AI Assistance <span>(Coming soon)</span></li>
-        <li>Understanding the Node System <span>(Coming soon)</span></li>
-        <li>Mastering the Time Tracking Features <span>(Coming soon)</span></li>
-        <li>Using Filters to Focus on the Right Tasks <span>(Coming soon)</span></li>
-        <li>Setting Up Your Ideal Day in the Day Planner <span>(Coming soon)</span></li>
-        <li>Analyzing Your Productivity with Insights <span>(Coming soon)</span></li>
-    </ul>
-        
-        <p>For video tutorials and more in-depth guides, check out our <a href="#">YouTube channel</a>.</p>
-    </section>
-    
-    <section id="contact">
-        <h2>Contact Support</h2>
-        
-        <p>Need personalized assistance? Send us a message using the form below, and our support team will get back to you as soon as possible (typically within 24 hours).</p>
-        
-        <div id="successMessage" class="success-message">
-            Your message has been sent successfully! We'll get back to you soon.
-        </div>
-        
-        <form id="supportForm" class="contact-form" action="https://formsubmit.co/curtisgaye5@gmail.com" method="POST">
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Your Email Address</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <select id="subject" name="subject" class="form-control" required>
-                    <option value="">Please select a topic...</option>
-                    <option value="Technical Issue">Technical Issue</option>
-                    <option value="Feature Request">Feature Request</option>
-                    <option value="Account Question">Account Question</option>
-                    <option value="Billing/Subscription">Billing/Subscription</option>
-                    <option value="General Question">General Question</option>
-                    <option value="Complete Account Deletion Request">Complete Account Deletion Request</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" class="form-control" required></textarea>
-            </div>
-            
-            <!-- Hidden fields for FormSubmit.co configuration -->
-            <input type="hidden" name="_subject" value="ExecCouncil AI Support Request">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://execcouncil.ai/support-success.html">
-            
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </section>
-    
-    <footer>
-        <p>© 2025 ExecCouncil AI. All rights reserved.</p>
-        <p><a href="index.html" class="back-link">Back to Homepage</a></p>
-    </footer>
+<div class="wrap">
 
-    <script>
-        // Simple form submission handling with success message
-        document.getElementById('supportForm').addEventListener('submit', function(e) {
-            // FormSubmit.co will handle the actual submission
-            // This is just for showing the success message
-            const successMessage = document.getElementById('successMessage');
-            
-            // In a real implementation, you would only show this after confirming submission
-            // For now, we'll just set a timeout to simulate server response
-            setTimeout(function() {
-                successMessage.style.display = 'block';
-                window.scrollTo({ top: successMessage.offsetTop - 20, behavior: 'smooth' });
-            }, 1000);
-        });
-    </script>
+<header class="masthead">
+  <img src="assets/icon.png" alt="The Council app icon">
+  <h1>Support</h1>
+  <p class="tagline">The Council — AI Life Planner</p>
+</header>
+
+<nav class="sitenav">
+  <a href="index.html">Home</a>
+  <a href="support.html" aria-current="page">Support</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="terms.html">Terms</a>
+</nav>
+
+<section>
+  <h2>Contact us</h2>
+  <p>The fastest way to reach us is email. We read every message and typically reply within one business day.</p>
+  <div class="callout">
+    <p><strong>Email:</strong> <a href="mailto:curtisgaye5@gmail.com">curtisgaye5@gmail.com</a></p>
+    <p>Please include your account username and, if you are reporting a problem, your device model and iOS version — it helps us reproduce the issue quickly.</p>
+  </div>
+  <p>You can also use the <a href="#contact">message form</a> at the bottom of this page.</p>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+
+  <h3>What is The Council?</h3>
+  <p>The Council is a voice-first planning app. You capture goals, habits, routines, and tasks, and a group of AI advisers — the Architect, Catalyst, Organizer, Archivist, Researcher, and Luminary — help you turn them into a workable day and adjust as things change.</p>
+
+  <h3>Does the app send my data to an AI service?</h3>
+  <p>Yes. The app's AI features are powered by <strong>OpenAI</strong>. Before anything is sent, the app shows you a disclosure screen that names OpenAI, lists exactly what will be sent, and asks you to agree. Nothing is sent unless you agree.</p>
+  <p>If you decline, the app still works as a manual planner and tracker — you simply won't get AI-generated plans or guidance. You can withdraw consent later in <strong>Settings</strong>. Full detail is in our <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h3>What happens to my voice recordings?</h3>
+  <p>When you use voice capture, the audio is sent to OpenAI's Whisper service to be transcribed into text. The text is saved to your account; the audio file is discarded after transcription. If you don't grant microphone permission, no audio is ever recorded.</p>
+
+  <h3>How do I delete my account?</h3>
+  <p>Open <strong>Settings</strong> in the app and choose <strong>Delete Account</strong>. This permanently removes your account and all associated data. If you can't access the app, email <a href="mailto:curtisgaye5@gmail.com">curtisgaye5@gmail.com</a> or use the form below and select "Complete Account Deletion Request" — we action deletion requests within 30 days.</p>
+
+  <h3>Can I get a copy of my data?</h3>
+  <p>Yes. Email us from the address on your account and we'll send you a portable copy of your data.</p>
+
+  <h3>How does the app break a goal into steps?</h3>
+  <p>When you create a goal, the app sends the goal description you wrote to OpenAI, along with relevant context such as your existing habits and available time. It comes back with a suggested structure of supporting habits, routines, and actions. Every suggestion is editable — you can change, reorder, or delete anything before or after accepting it.</p>
+
+  <h3>Why do I need to grant calendar or Health permission?</h3>
+  <p>Both are optional. Calendar access lets the app place your existing events into your day view so plans don't collide with meetings. Health access reads sleep and step data to inform your daily plan. Health data is never sent to OpenAI. You can decline either, or revoke it later in iOS Settings, and the rest of the app keeps working.</p>
+
+  <h3>Live Activities or notifications aren't appearing</h3>
+  <p>Check that notifications are enabled for The Council in <strong>iOS Settings &rarr; Notifications</strong>, and that <strong>Live Activities</strong> is enabled in <strong>iOS Settings &rarr; Face ID &amp; Passcode</strong> and in the app's own settings page. If they still don't appear, restart the app once, then email us with your device model and iOS version.</p>
+
+  <h3>My data looks out of date or a change didn't save</h3>
+  <p>Pull down to refresh on the affected screen. If a change still hasn't appeared, sign out and back in — your data lives on our servers, so nothing is lost by doing this. If the problem persists, email us and describe what you changed and what you expected to see.</p>
+
+  <h3>I forgot my password</h3>
+  <p>Use the <strong>Forgot password</strong> link on the sign-in screen to receive a reset email. If the email doesn't arrive within a few minutes, check your spam folder, then contact us.</p>
+
+  <h3>Does the app cost anything?</h3>
+  <p>The Council is currently free to use. There are no in-app purchases and we do not collect payment information.</p>
+</section>
+
+<section id="contact">
+  <h2>Send us a message</h2>
+  <p>Prefer a form? Fill this in and it will reach the same inbox. If you'd rather not use the form, just email <a href="mailto:curtisgaye5@gmail.com">curtisgaye5@gmail.com</a> directly.</p>
+
+  <form action="https://formsubmit.co/curtisgaye5@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="The Council — support request">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+
+    <label for="name">Your name</label>
+    <input type="text" id="name" name="name" required autocomplete="name">
+
+    <label for="email">Your email address</label>
+    <input type="email" id="email" name="email" required autocomplete="email">
+
+    <label for="topic">Subject</label>
+    <select id="topic" name="topic" required>
+      <option value="">Please select a topic…</option>
+      <option>Technical issue</option>
+      <option>Feature request</option>
+      <option>Account question</option>
+      <option>Privacy or data question</option>
+      <option>Complete Account Deletion Request</option>
+      <option>Other</option>
+    </select>
+
+    <label for="message">Your message</label>
+    <textarea id="message" name="message" required placeholder="Tell us what happened, and what you expected to happen. Device model and iOS version help us a lot."></textarea>
+
+    <button type="submit">Send message</button>
+  </form>
+</section>
+
+</div>
+
+<footer>
+  <div class="footlinks">
+    <a href="index.html">Home</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+  </div>
+  <p>&copy; 2026 The Council. All rights reserved.</p>
+</footer>
 </body>
 </html>
