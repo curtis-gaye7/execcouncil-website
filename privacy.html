@@ -56,8 +56,8 @@
   <ul>
     <li><strong>Completion and activity history</strong> — which habits and tasks you completed or missed, and when.</li>
     <li><strong>Time tracking</strong> — timers you run, time blocks, and daily itinerary structure.</li>
-    <li><strong>Calendar events</strong> — if, and only if, you grant calendar permission, the app reads events to place them in your day view. You can revoke this at any time in iOS Settings.</li>
-    <li><strong>Health data</strong> — if, and only if, you grant permission, the app reads sleep and step data from Apple Health to inform your daily plan. This data is never sent to OpenAI or any third party. You can revoke this at any time in iOS Settings.</li>
+    <li><strong>Calendar events</strong> — if, and only if, you grant calendar permission, the app reads your events so it can plan around what is already on your day. The event title and time are included in what is sent to OpenAI (see section 3). You can revoke this at any time in iOS Settings.</li>
+    <li><strong>Health data</strong> — if, and only if, you grant permission, the app reads your nightly sleep hours and daily step total from Apple Health. These are stored as measurements and, like your other measurements, are included in what is sent to OpenAI (see section 3). No other Health data is read. You can revoke this at any time in iOS Settings.</li>
     <li><strong>Device and diagnostic data</strong> — crash reports and error diagnostics, plus a device token used to deliver notifications and Live Activities.</li>
   </ul>
 
@@ -89,6 +89,8 @@
       <tr><td>Measurements and logged workouts</td><td>To summarize trends and adjust recommendations</td></tr>
       <tr><td>Notes and saved memories you write in the app</td><td>To let the app recall context you have previously given it</td></tr>
       <tr><td>The display name you set for the app to address you by</td><td>So generated text can refer to you by name</td></tr>
+      <tr><td>Sleep hours and step totals, if you connect Apple Health</td><td>To ground guidance in how you actually slept and moved</td></tr>
+      <tr><td>Calendar event titles and times, if you connect your calendar</td><td>So the day is planned around commitments you already have</td></tr>
       <tr><td>Voice recordings (audio files)</td><td>To transcribe speech into text — see section 4</td></tr>
     </tbody>
   </table>
@@ -98,8 +100,8 @@
   <ul>
     <li>Your password, in any form.</li>
     <li>Your email address or account credentials.</li>
-    <li>Apple Health data (sleep and steps).</li>
-    <li>Raw calendar event data from your device calendar.</li>
+    <li>Your location.</li>
+    <li>Your contacts, photos, or browsing history.</li>
     <li>Payment information — the app does not collect payment details at all.</li>
   </ul>
 
